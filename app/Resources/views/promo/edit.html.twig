@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mx-auto bg-info mt-5 shadow p-3 mb-5 bg-info rounded">
+    <h1>Promo edit</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+    <ul class="nav d-flex justify-content-around">
+    <li class="nav-items">
+        <input type="submit" value="Edit" />
+
+
+
+        <li class="nav-items">
+            <a class="mr-5 btn btn-sm btn-success " href="{{ path('promo_index') }}">Back to the list</a>
+        </li>
+        <li class="nav-items">
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    {{ form_end(edit_form) }}
+</div>
+{% endblock %}

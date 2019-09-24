@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-5 bg-danger">
+    <h1>Salles list</h1>
+
+    <table class="table table-striped table-dark w-50 mx-auto shadow p-3 mb-5 rounded">
+        <thead class="bg-danger mt-2">
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Numero</th>
+                <th class="text-center">Nbplaces</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for salle in salles %}
+            <tr>
+                <td><a href="{{ path('salle_show', { 'id': salle.id }) }}">{{ salle.id }}</a></td>
+                <td>{{ salle.numero }}</td>
+                <td>{{ salle.nbPlaces }}</td>
+                <td>
+                    <ul class="nav">
+                        <li class="nav-items">
+                            <a class="mr-5 btn btn-sm btn-success" href="{{ path('salle_show', { 'id': salle.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a class=" btn btn-sm btn-success" href="{{ path('salle_edit', { 'id': salle.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul class="nav ">
+        <li class="nav-items">
+            <a class="nav-link text-white btn btn-sm btn-dark" href="{{ path('salle_new') }}">Create a new salle</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
